@@ -3,11 +3,12 @@ import { api } from './data';
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
 import axios from 'axios';
+import ContentsCard from './components/ContentsCard.vue';
 
 
 // *********************
 export default {
-  components: { AppHeader },
+  components: { AppHeader, ContentsCard },
   data() {
     return {
       titleFilter: '',
@@ -52,23 +53,14 @@ export default {
   <!-- MOVIES -->
   <section id="movies">
     <h2>Movies</h2>
-    <ul v-for="movie in store.movies" :key="movie.id">
-      <li>{{ movie.title }}</li>
-      <li>{{ movie.original_title }}</li>
-      <li>{{ movie.original_language }}</li>
-      <li>{{ movie.vote_average }}</li>
-    </ul>
+    <ContentsCard v-for="movie in store.movies" :key="movie.id" />
+
   </section>
 
   <!-- SERIES -->
   <section id="series">
     <h2>Series</h2>
-    <ul v-for="serie in store.series" :key="serie.id">
-      <li>{{ serie.name }}</li>
-      <li>{{ serie.original_name }}</li>
-      <li>{{ serie.original_language }}</li>
-      <li>{{ serie.vote_average }}</li>
-    </ul>
+    <ContentsCard v-for="serie in store.series" :key="serie.id" />
   </section>
 </template>
 
