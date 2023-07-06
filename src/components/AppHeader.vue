@@ -21,4 +21,4 @@ export default {
     <SearchForm @term-change="setTitleFilter" />
 </template>
 
-<style></style>
+<style lang="scss" scoped></style>
