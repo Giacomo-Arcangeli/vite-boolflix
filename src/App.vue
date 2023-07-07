@@ -51,4 +51,10 @@ export default {
   <AppMain />
 </template>
 
-<style lang="scss"></style>
+
+
+<style lang="scss">
+li {
+  list-style-type: none;
+}
+</style>

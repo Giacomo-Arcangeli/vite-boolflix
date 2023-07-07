@@ -18,7 +18,23 @@ export default {
 </script>
 
 <template>
-    <SearchForm @term-change="setTitleFilter" />
+    <header class="bg-black">
+        <div class="container">
+            <h1>BOOLFLIX</h1>
+            <SearchForm @term-change="setTitleFilter" />
+        </div>
+    </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: red;
+}
+</style>
