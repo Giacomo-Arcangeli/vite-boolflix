@@ -22,6 +22,14 @@ export default {
         posterPath() {
             if (!this.item.poster_path) return poster.placeholder;
             return poster.prefix + this.item.poster_path;
+        },
+        vote() {
+            return Math.ceil(this.item.vote_average / 2);
+        }
+    },
+    methods: {
+        StarType(n) {
+            return n <= this.vote ? 'fas' : 'far';
         }
     }
 };
@@ -36,7 +44,7 @@ export default {
             <img v-if="hasFlag" :src="flagSrc" alt="">
             <span v-else>{{ item.original_language }}</span>
         </li>
-        <li>{{ item.vote_average }}</li>
+        <i v-for="n in 5" :key="n" :class="StarType(n)" class="fa-star"></i>
         <li><img :src="posterPath" alt=""></li>
     </ul>
 </template>
