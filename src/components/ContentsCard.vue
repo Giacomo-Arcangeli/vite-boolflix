@@ -11,6 +11,12 @@ export default {
         flagSrc() {
             const url = new URL(`../assets/img/${this.item.original_language}.png`, import.meta.url);
             return url.href;
+        },
+        title() {
+            return this.item.title || this.item.name;
+        },
+        originalTitle() {
+            return this.item.original_title || this.item.original_name;
         }
     }
 };
@@ -19,8 +25,8 @@ export default {
 
 <template>
     <ul>
-        <li>{{ item.title || item.name }}</li>
-        <li>{{ item.original_title || item.original_name }}</li>
+        <li>{{ title }}</li>
+        <li>{{ originalTitle }}</li>
         <li>
             <img v-if="hasFlag" :src="flagSrc" alt="">
             <span v-else>{{ item.original_language }}</span>
