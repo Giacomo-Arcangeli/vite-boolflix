@@ -1,18 +1,17 @@
 <script>
 import { api } from './data';
 import { store } from './data/store';
-import AppHeader from './components/AppHeader.vue';
 import axios from 'axios';
-import ContentsCard from './components/ContentsCard.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
 
 
 // *********************
 export default {
-  components: { AppHeader, ContentsCard },
+  components: { AppHeader, AppMain },
   data() {
     return {
       titleFilter: '',
-      store
     }
   },
   methods: {
@@ -49,18 +48,7 @@ export default {
 
 <template>
   <AppHeader @search-movie="changeTitleFilter" />
-
-  <!-- MOVIES -->
-  <section id="movies">
-    <h2>Movies</h2>
-    <ContentsCard v-for="movie in store.movies" :key="movie.id" :item="movie" />
-  </section>
-
-  <!-- SERIES -->
-  <section id="series">
-    <h2>Series</h2>
-    <ContentsCard v-for="serie in store.series" :key="serie.id" :item="serie" />
-  </section>
+  <AppMain />
 </template>
 
 <style lang="scss"></style>

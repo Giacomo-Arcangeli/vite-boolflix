@@ -44,7 +44,7 @@ export default {
             <img v-if="hasFlag" :src="flagSrc" alt="">
             <span v-else>{{ item.original_language }}</span>
         </li>
-        <i v-for="n in 5" :key="n" :class="StarType(n)" class="fa-star"></i>
+        <li><i v-for="n in 5" :key="n" :class="StarType(n)" class="fa-star"></i></li>
         <li><img :src="posterPath" alt=""></li>
     </ul>
 </template>
