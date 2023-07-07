@@ -1,4 +1,5 @@
 <script>
+import { poster } from '../data';
 export default {
     props: {
         item: Object
@@ -17,6 +18,10 @@ export default {
         },
         originalTitle() {
             return this.item.original_title || this.item.original_name;
+        },
+        posterPath() {
+            if (!this.item.poster_path) return poster.placeholder;
+            return poster.prefix + this.item.poster_path;
         }
     }
 };
@@ -32,6 +37,7 @@ export default {
             <span v-else>{{ item.original_language }}</span>
         </li>
         <li>{{ item.vote_average }}</li>
+        <li><img :src="posterPath" alt=""></li>
     </ul>
 </template>
 
